@@ -3,6 +3,6 @@ import offersController from '../controllers/offersController';
 
 const router = express.Router();
 
-router.route('/').post(offersController.countOfferProfit);
+router.route('/').post(offersController.countCostsAndOfferProfit);
 
 export default router;

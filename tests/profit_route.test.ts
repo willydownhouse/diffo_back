@@ -26,7 +26,7 @@ describe('ERROR REQUESTS', () => {
   test('throw error if body does not have kilometers', async () => {
     const res = await api.post('/api/offers');
 
-    expect(res.body.message).toBe('Kilometers must be a number');
+    expect(res.body.message).toBe('Please enter kilometers as a number');
     expect(res.statusCode).toBe(400);
   });
   test('throw error if body does not have hours', async () => {
@@ -34,7 +34,7 @@ describe('ERROR REQUESTS', () => {
       km: 12,
     });
 
-    expect(res.body.message).toBe('Hours must be a number');
+    expect(res.body.message).toBe('Please enter hours as a number');
     expect(res.statusCode).toBe(400);
   });
   test('throw error if body does not have kilometer price', async () => {
@@ -43,7 +43,9 @@ describe('ERROR REQUESTS', () => {
       hours: 3,
     });
 
-    expect(res.body.message).toBe('Price per kilometer must be a number');
+    expect(res.body.message).toBe(
+      'Please enter price per kilometer as a number'
+    );
     expect(res.statusCode).toBe(400);
   });
   test('throw error if body does not have hour price', async () => {
@@ -53,7 +55,7 @@ describe('ERROR REQUESTS', () => {
       km_price: 9,
     });
 
-    expect(res.body.message).toBe('Price per hour must be a number');
+    expect(res.body.message).toBe('Please enter price per hour as a number');
     expect(res.statusCode).toBe(400);
   });
   test('throw error if body does not have offer', async () => {
@@ -64,7 +66,7 @@ describe('ERROR REQUESTS', () => {
       h_price: 30,
     });
 
-    expect(res.body.message).toBe('Offer must be a number');
+    expect(res.body.message).toBe('Please enter offer as a number');
     expect(res.statusCode).toBe(400);
   });
 });

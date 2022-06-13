@@ -3,11 +3,21 @@ import cors from 'cors';
 import offersRouter from './routers/offersRouter';
 import errorHandler from './controllers/errorController';
 import AppError from './utils/AppError';
+import rateLimit from 'express-rate-limit';
+import helmet from 'helmet';
 
 const app = express();
 
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 30,
+  standardHeaders: true,
+});
+
 app.use(express.json());
 app.use(cors());
+app.use(limiter);
+app.use(helmet());
 
 app.use('/api/offers', offersRouter);
 

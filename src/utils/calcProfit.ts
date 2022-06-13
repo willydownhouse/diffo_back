@@ -1,6 +1,6 @@
 import { ICountProfitData } from '../interfaces/countProfitData';
 
-export function calcProfit(data: ICountProfitData) {
+export function doCalculationsAndReturnResponseObject(data: ICountProfitData) {
   const { km, km_price, hours, h_price, offer } = data;
 
   const distance_costs = km * km_price;
